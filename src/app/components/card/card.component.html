@@ -1,0 +1,23 @@
+<div class="card h-100 shadow border-0">
+  <img [src]="product.image" class="card-img-top" [alt]="product.title" style="height: 200px; object-fit: cover;">
+  
+  <div class="card-body d-flex flex-column justify-content-between">
+    <div>
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text mb-1">Price: <strong>${{ product.price }}</strong></p>
+      <p class="card-text mb-1">Quantity: {{ product.quantity }}</p>
+      <p class="card-text mb-1">Category: {{ product.category }}</p>
+    </div>
+
+    <div>
+      <a *ngIf="product.quantity > 1" class="btn btn-primary w-100 mb-2">Add to Cart</a>
+
+      <div *ngIf="product.quantity === 1">
+        <p class="text-warning text-center mb-2">Only 1 piece available</p>
+        <a class="btn btn-success w-100">Buy Now</a>
+      </div>
+
+      <p *ngIf="product.quantity === 0" class="text-danger fw-bold text-center mt-2">Sold Out</p>
+    </div>
+  </div>
+</div>
