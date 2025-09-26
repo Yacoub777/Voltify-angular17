@@ -1,27 +1,94 @@
-# Lap19Task2
+# ⚡Voltify
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+**Volitfy** is an online store website that allows users to browse products by categories, search for products, and add them to the shopping cart with a chosen quantity. The total price is automatically calculated.  
+The project also supports viewing more product details and applying **CRUD operations** (Create, Read, Update, Delete, Search) on products with validation, using **json-server** as a fake backend.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Tech Stack
+- **Framework:** Angular 17  
+- **Language:** TypeScript  
+- **Styling:** CSS  
+- **Build Tool:** Angular CLI  
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📂 Project Structure
+```
+src/
+ ├── app/
+ │   ├── components/
+ │   │   ├── card/
+ │   │   ├── footer/
+ │   │   ├── home/
+ │   │   ├── navbar/
+ │   │   └── product/
+ │   ├── interface/
+ │   │   └── IProduct.ts
+ │   ├── app.component.css
+ │   ├── app.component.html
+ │   ├── app.component.spec.ts
+ │   ├── app.component.ts
+ │   ├── app.config.server.ts
+ │   ├── app.config.ts
+ │   └── app.routes.ts
+ │
+ ├── assets/
+ │   └── images/
+ │
+ ├── favicon.ico
+ ├── index.html
+ ├── main.server.ts
+ ├── main.ts
+ └── styles.css
+```
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ⚙️ Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Yacoub777/Voltify-angular17.git
+   cd Voltify-angular17
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the project:
+   ```bash
+   ng serve or npm start
+   ```
+   The app will run at `http://localhost:4200/`
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🚀 Features
+- 🛍️ Render products with categories.
+- 🔎 Search for products by name or category.
+- ➕ Add products to the cart and choose the quantity you want.
+- 💰 Calculate the total price of the cart.
+- ℹ️ Show more details about each product if needed.
+- ✏️ Full CRUD operations on products:
+  - Add a new product.
+  - Edit existing product details.
+  - Delete a product.
+  - Search for a product.
+- ✅ Input validation for adding and editing products.
+- 🗄️ Powered by **json-server** to simulate an API.
+---
 
-## Running end-to-end tests
+## 👥 Contributors
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Thanks to the following people who contributed to this project 💙:
 
-## Further help
+- **Mostafa Yacoub**  
+- **Dolagy Sameh**  
+- **Mariam**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+## 📖 License
+This project is licensed under the MIT License.
+
+
+
