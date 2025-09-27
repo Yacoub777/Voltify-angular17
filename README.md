@@ -84,7 +84,7 @@ Thanks to the following people who contributed to this project 💙:
 
 - **Mostafa Yacoub**  
 - **Dolagy Sameh**  
-- **Mariam**
+- **Mariam Said**
 
 ---
 ## 📖 License
