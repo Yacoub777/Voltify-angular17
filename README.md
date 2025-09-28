@@ -17,20 +17,27 @@ The project also supports viewing more product details and applying **CRUD opera
 ```
 src/
  ├── app/
- │   ├── components/
- │   │   ├── card/
- │   │   ├── footer/
- │   │   ├── home/
- │   │   ├── navbar/
- │   │   └── product/
+ │   ├── add-product/
+ │   ├── card/
+ │   ├── footer/
+ │   ├── home/
+ │   ├── navbar/
+ │   ├── product/
+ │   ├── product-form/
+ │   │
  │   ├── interface/
  │   │   └── IProduct.ts
+ │   │
+ │   ├── service/
+ │   │   ├── voltify.service.ts
+ │   │   └── voltify.service.spec.ts
+ │   │
  │   ├── app.component.css
  │   ├── app.component.html
- │   ├── app.component.spec.ts
  │   ├── app.component.ts
- │   ├── app.config.server.ts
+ │   ├── app.component.spec.ts
  │   ├── app.config.ts
+ │   ├── app.config.server.ts
  │   └── app.routes.ts
  │
  ├── assets/
@@ -38,9 +45,21 @@ src/
  │
  ├── favicon.ico
  ├── index.html
- ├── main.server.ts
  ├── main.ts
- └── styles.css
+ ├── main.server.ts
+ ├── styles.css
+ │
+ ├── db.json
+ ├── server.ts
+ │
+ ├── angular.json
+ ├── tsconfig.app.json
+ ├── package.json
+ ├── package-lock.json
+ ├── README.md
+ ├── .gitignore
+ └── .editorconfig
+
 ```
 
 ---
