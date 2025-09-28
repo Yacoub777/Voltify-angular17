@@ -61,7 +61,7 @@ export class ProductComponent implements OnInit, OnChanges {
     this.displayedProducts = result;
   }
 
-  deleteProduct(id: number) {
+  deleteProduct(id: any) {
     this.productService.deleteProduct(id).subscribe({
       next: () => {
         this.products = this.products.filter(p => p.id !== id);
