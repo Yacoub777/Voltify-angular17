@@ -1,5 +1,5 @@
 export interface Iproduct{
-    id:string,
+    id:any,
     image: string,
     title: string,
     quantity: number,
