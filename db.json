@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "id": "1",
-      "image": "assets/images/iPhone.jpg",
       "title": "iPhone 13 Pro",
-      "quantity": 5,
       "price": 1000,
-      "category": "phones"
+      "quantity": 6,
+      "category": "phones",
+      "image": "assets/images/iPhone.jpg",
+      "id": "1"
     },
     {
       "id": "2",
@@ -65,12 +65,12 @@
       "category": "audio"
     },
     {
-      "id": 9,
-      "title": "Ipad pro",
-      "price": 5000,
-      "quantity": 10,
-      "category": "phones",
-      "image": "https://media.wired.com/photos/60a7edc7a44d38b5b31ca92b/master/w_2560%2Cc_limit/Gear-Review-iPad-Pro-Top.jpg"
+      "title": "sammmm",
+      "price": 78787878,
+      "quantity": 6,
+      "category": "Phones",
+      "image": "none",
+      "id": "9"
     }
   ]
 }

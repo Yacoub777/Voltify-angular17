@@ -1,31 +1,30 @@
+<div *ngIf="showAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-2" role="alert"
+  style="z-index: 1050;">
+  {{ alertMessage }}
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="favicon.ico" alt="icon" width="30px" /> Voltify
     </a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarContent"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"
-            >Home</a
-          >
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cart</a>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/cart']">Cart ({{ cartCount }})</a>
         </li>
+
       </ul>
 
       <!-- هنا صندوق البحث بتاعك
