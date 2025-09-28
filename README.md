@@ -65,8 +65,9 @@ src/
 ---
 
 ## ⚙️ Installation & Setup
-```bash
+
 # 1. Clone the repository
+```bash
 git clone https://github.com/Yacoub777/Voltify-angular17.git
 cd Voltify-angular17
 ```
