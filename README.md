@@ -65,21 +65,20 @@ src/
 ---
 
 ## ⚙️ Installation & Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Yacoub777/Voltify-angular17.git
-   cd Voltify-angular17
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the project:
-   ```bash
-   ng serve or npm start
-   ```
-   The app will run at `http://localhost:4200/`
-
+```bash
+# 1. Clone the repository
+git clone https://github.com/Yacoub777/Voltify-angular17.git
+cd Voltify-angular17
+```
+# 2. Install dependencies
+```bash
+npm install
+```
+# 3. Run the project
+```bash
+npm run dev
+```
+# The app will run at: `http://localhost:4200/`
 ---
 
 ## 🚀 Features
