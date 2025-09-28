@@ -65,11 +65,11 @@
       "category": "audio"
     },
     {
-      "title": "sammmm",
-      "price": 78787878,
-      "quantity": 6,
-      "category": "Phones",
-      "image": "none",
+      "title": "iPad Pro",
+      "price": 900,
+      "quantity": 1,
+      "category": "phones",
+      "image": "https://media.wired.com/photos/60a7edc7a44d38b5b31ca92b/master/w_2560%2Cc_limit/Gear-Review-iPad-Pro-Top.jpg",
       "id": "9"
     }
   ]

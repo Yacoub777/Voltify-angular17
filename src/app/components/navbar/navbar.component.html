@@ -1,7 +1,10 @@
+<!-- ✅ alert for success messages -->
 <div *ngIf="showAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-2" role="alert"
   style="z-index: 1050;">
   {{ alertMessage }}
 </div>
+
+<!-- ✅ Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -15,40 +18,29 @@
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
+          <a class="nav-link" [routerLink]="['/products']">Products</a>
         </li>
-        <li class="nav-item">
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/cart']">Cart ({{ cartCount }})</a>
         </li>
-
       </ul>
 
-      <!-- هنا صندوق البحث بتاعك
-      <div class="d-flex align-items-center me-3">
+      <!-- ✅ Search Bar in Navbar -->
+      <form class="d-flex"(submit)="onSearchClick(); $event.preventDefault()">
         <input
           type="text"
-          placeholder="Search by product name..."
-          [(ngModel)]="searchText"
           class="form-control me-2"
+          placeholder="Search products..."
+          [(ngModel)]="searchText"
+          name="search"
         />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
 
-        <select [(ngModel)]="selectedCategory" class="form-select me-2">
-          <option value="">All Categories</option>
-          <option value="phones">Phones</option>
-          <option value="laptops">Laptops</option>
-          <option value="audio">Audio</option>
-        </select>
-
-        <button class="btn btn-outline-success" (click)="onSearchClick()">
-          Search
-        </button>
-      </div> -->
-
-      <button class="btn btn-outline-light">Login</button>
+      <button class="btn btn-outline-light ms-3">Login</button>
     </div>
   </div>
 </nav>

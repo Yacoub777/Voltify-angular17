@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../service/cart.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,21 +12,21 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  @Output() search = new EventEmitter<{ text: string; category: string }>();
   cartCount = 0;
   searchText = '';
-  selectedCategory = '';
   alertMessage = '';
   showAlert = false;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) {}
 
   onSearchClick() {
-    this.search.emit({
-      text: this.searchText,
-      category: this.selectedCategory,
-    });
+    if (this.searchText.trim()) {
+      this.router.navigate(['/products'], {
+        queryParams: { search: this.searchText.trim() }
+      });
+    }
   }
+
   ngOnInit() {
     this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count;
@@ -35,9 +35,7 @@ export class NavbarComponent {
     this.cartService.alert$.subscribe(msg => {
       this.alertMessage = msg;
       this.showAlert = true;
-  
       setTimeout(() => this.showAlert = false, 2000);
     });
   }
 }
-
