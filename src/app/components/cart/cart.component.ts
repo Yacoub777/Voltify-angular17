@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -22,7 +23,7 @@ export class CartComponent implements OnInit {
   onQuantityChange(item: any, newQty: number) {
     if (newQty > item.quantity) {
       item.selectedQty = item.quantity;
-      alert(`The mmax Quantity of product is :${item.quantity}`);
+      alert(`The Max Quantity of Product is :${item.quantity}`);
     } else if (newQty < 1) {
       item.selectedQty = 1;
     } else {

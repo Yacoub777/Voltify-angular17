@@ -3,12 +3,12 @@ import { Iproduct } from '../../interface/Iproduct';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
 import { VoltifyService } from '../../service/voltify.service';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CardComponent, CommonModule ],
+  imports: [CardComponent, CommonModule ,RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

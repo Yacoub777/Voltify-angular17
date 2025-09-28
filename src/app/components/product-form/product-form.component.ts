@@ -78,7 +78,7 @@ export class ProductFormComponent implements OnInit {
         } else {
           console.warn('⚠️ Product not found');
           alert('Product not found!');
-          this.router.navigate(['/']);
+          this.router.navigate(['/products']);
         }
         this.isLoading = false;
       },
@@ -86,7 +86,7 @@ export class ProductFormComponent implements OnInit {
         console.error('❌ Error loading product:', err);
         alert('Error loading product data! Check if JSON Server is running.');
         this.isLoading = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/produts']);
       }
     });
   }
@@ -113,7 +113,7 @@ export class ProductFormComponent implements OnInit {
         next: (updatedProduct) => {
           console.log('✅ Product updated successfully:', updatedProduct);
           alert('Product updated successfully!');
-          this.router.navigate(['/']); 
+          this.router.navigate(['/products']); 
         },
         error: (err) => {
           console.error('❌ Update error:', err);
@@ -134,7 +134,7 @@ export class ProductFormComponent implements OnInit {
           next: (newProduct) => {
             console.log('✅ Product added successfully:', newProduct);
             alert('Product added successfully!');
-            this.router.navigate(['/']); 
+            this.router.navigate(['/products']); 
           },
           error: (err) => {
             console.error('❌ Add error:', err);

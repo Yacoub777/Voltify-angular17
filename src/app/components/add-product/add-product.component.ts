@@ -34,7 +34,7 @@ export class AddProductComponent {
     if (this.productForm.valid) {
       this.productService.addProduct(this.productForm.value).subscribe(() => {
         alert(' Product added successfully!');
-        this.router.navigate(['/']); 
+        this.router.navigate(['/products']); 
       });
     }
   }

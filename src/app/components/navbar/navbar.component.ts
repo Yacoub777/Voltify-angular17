@@ -16,7 +16,7 @@ export class NavbarComponent {
   searchText = '';
   alertMessage = '';
   showAlert = false;
-
+  hoverLogin: boolean=false;
   constructor(private cartService: CartService, private router: Router) {}
 
   onSearchClick() {

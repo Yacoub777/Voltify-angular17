@@ -33,12 +33,12 @@
       "category": "laptops"
     },
     {
-      "id": "5",
-      "image": "assets/images/dell.jpg",
       "title": "Dell XPS 13",
-      "quantity": 6,
       "price": 1500,
-      "category": "laptops"
+      "quantity": 6,
+      "category": "laptops",
+      "image": "assets/images/dell.jpg",
+      "id": "5"
     },
     {
       "id": "6",
@@ -57,12 +57,12 @@
       "category": "audio"
     },
     {
-      "id": "8",
-      "image": "assets/images/SonyHeadphones.jpg",
       "title": "Sony WH-1000XM4",
-      "quantity": 5,
       "price": 400,
-      "category": "audio"
+      "quantity": 5,
+      "category": "audio",
+      "image": "assets/images/SonyHeadphones.jpg",
+      "id": "8"
     },
     {
       "title": "iPad Pro",

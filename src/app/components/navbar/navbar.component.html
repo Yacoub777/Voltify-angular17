@@ -40,7 +40,13 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-      <button class="btn btn-outline-light ms-3">Login</button>
-    </div>
+      <button class="btn ms-3" 
+      style="background-color: #2A55C1; color: #ffffff; border: none;"
+      (mouseover)="hoverLogin=true" 
+      (mouseout)="hoverLogin=false"
+      [style.background-color]="hoverLogin ? '#3B6FD0' : '#2A55C1'">
+Login
+</button>
+  </div>
   </div>
 </nav>

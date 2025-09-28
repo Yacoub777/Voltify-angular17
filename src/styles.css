@@ -4,5 +4,16 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    color: #ffffff;
   }
   
+/* خلفية الصفحة */
+body, .bg-dark {
+  background-color: #202020 !important;
+  color: #E0E0E0 !important;
+}
+
+/* لون الخطوط العامة */
+.text-light {
+  color: #ffffff !important;
+}
