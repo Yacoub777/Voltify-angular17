@@ -65,12 +65,12 @@
       "category": "audio"
     },
     {
-      "id": "8871",
-      "title": "Sasmung A55",
-      "price": 580,
-      "quantity": 5,
+      "id": 9,
+      "title": "Ipad pro",
+      "price": 5000,
+      "quantity": 10,
       "category": "phones",
-      "image": "https://www.dxomark.com/wp-content/uploads/medias/post-167690/Samsung-Galaxy-A55-5G_featured-image-packshot-review.jpg"
+      "image": "https://media.wired.com/photos/60a7edc7a44d38b5b31ca92b/master/w_2560%2Cc_limit/Gear-Review-iPad-Pro-Top.jpg"
     }
   ]
 }
