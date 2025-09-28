@@ -75,7 +75,11 @@ cd Voltify-angular17
 ```bash
 npm install
 ```
-### 3. Run the project
+### 3. Install Concurrently
+```bash
+npm install concurrently --save-dev
+```
+### 4. Run the project
 ```bash
 npm run dev
 ```
