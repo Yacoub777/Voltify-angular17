@@ -1,0 +1,63 @@
+<div class="container py-4">
+  <h2>{{ isEdit ? 'Edit Product' : 'Add Product' }}</h2>
+
+  <div *ngIf="isLoading" class="text-center">
+    <p>Loading product data...</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+    
+    <div class="mb-3">
+      <label class="form-label">Title *</label>
+      <input type="text" class="form-control" formControlName="title" 
+             [class.is-invalid]="form.get('title')?.invalid && form.get('title')?.touched">
+      <div class="invalid-feedback" *ngIf="form.get('title')?.invalid && form.get('title')?.touched">
+        Title is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price *</label>
+      <input type="number" class="form-control" formControlName="price"
+             [class.is-invalid]="form.get('price')?.invalid && form.get('price')?.touched">
+      <div class="invalid-feedback" *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+        Valid price is required (min: 0)
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Quantity *</label>
+      <input type="number" class="form-control" formControlName="quantity"
+             [class.is-invalid]="form.get('quantity')?.invalid && form.get('quantity')?.touched">
+      <div class="invalid-feedback" *ngIf="form.get('quantity')?.invalid && form.get('quantity')?.touched">
+        Valid quantity is required (min: 0)
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category *</label>
+      <input type="text" class="form-control" formControlName="category"
+             [class.is-invalid]="form.get('category')?.invalid && form.get('category')?.touched">
+      <div class="invalid-feedback" *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
+        Category is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image URL *</label>
+      <input type="text" class="form-control" formControlName="image"
+             [class.is-invalid]="form.get('image')?.invalid && form.get('image')?.touched">
+      <div class="invalid-feedback" *ngIf="form.get('image')?.invalid && form.get('image')?.touched">
+        Image URL is required
+      </div>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="form.invalid">
+      {{ isEdit ? 'Update Product' : 'Add Product' }}
+    </button>
+    
+    <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/'])">
+      Cancel
+    </button>
+  </form>
+</div>
