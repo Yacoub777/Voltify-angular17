@@ -111,3 +111,19 @@ body {
 .card-body:hover h5 {
     color: #00bfff;
 }
+
+/* ارتفاع ثابت + قص الصور */
+.slider-img {
+    height: 280px;
+    width: 600px;
+    object-fit: contain;
+    filter: brightness(70%); /* يعمل غامق بسيط عشان الكلام يبان */
+    border-radius: 12px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  

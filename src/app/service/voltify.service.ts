@@ -33,7 +33,7 @@ export class VoltifyService {
     return this.http.get<Iproduct[]>(this.apiUrl).pipe(
       map(products => {
         const maxId = products.length > 0 ? Math.max(...products.map(p => p.id ?? 0)) : 0;
-        return { ...product, id: maxId + 1 };
+        return { ...product, id: String(maxId + 1) };
       }),
       switchMap(productWithId => this.http.post<Iproduct>(this.apiUrl, productWithId))
     );
