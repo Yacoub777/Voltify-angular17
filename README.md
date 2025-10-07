@@ -91,7 +91,6 @@ npm run dev
 - 🔎 Search for products by category.
 - ➕ Add products to the cart and choose the quantity you want.
 - 💰 Calculate the total price of the cart.
-- ℹ️ Show more details about each product if needed.
 - ✏️ Full CRUD operations on products:
   - Add a new product.
   - Edit existing product details.
@@ -99,6 +98,13 @@ npm run dev
   - Search for a product.
 - ✅ Input validation for adding and editing products.
 - 🗄️ Powered by **json-server** to simulate an API.
+- 🏷️ Display a **badge notification** when a product is added to the cart.
+- ⛔ Show an **alert** if the user tries to add the same product more than once.
+- 🛒 **View previous orders** for the logged-in user.
+- 💳 **Add multiple payment methods** for checkout.
+- ⬆️ **Scroll-to-top button** on the products page.
+- 🖼️ **Update cart icon** to reflect current cart status.
+
 ---
 
 ## 👥 Contributors
