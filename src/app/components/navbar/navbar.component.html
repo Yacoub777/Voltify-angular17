@@ -1,6 +1,9 @@
 <!-- ✅ alert for success messages -->
-<div *ngIf="showAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-2" role="alert"
-  style="z-index: 1050;">
+<div *ngIf="showAlert"
+     class="alert position-fixed top-0 start-50 translate-middle-x mt-2"
+     [ngClass]="alertType === 'danger' ? 'alert-danger' : 'alert-success'"
+     role="alert"
+     style="z-index: 1050;">
   {{ alertMessage }}
 </div>
 
@@ -23,8 +26,16 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/products']">Products</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/cart']">Cart ({{ cartCount }})</a>
+        <li class="nav-item d-flex align-items-center position-relative ms-2">
+          <a class="nav-link p-0 position-relative d-flex align-items-center" [routerLink]="['/cart']">
+            <i class="bi bi-cart3 fs-5 text-white"></i>
+            <span
+              *ngIf="cartCount > 0"
+              class="cart-badge position-absolute rounded-pill"
+            >
+              {{ cartCount }}
+            </span>
+          </a>
         </li>
       </ul>
 

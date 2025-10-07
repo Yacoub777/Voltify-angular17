@@ -1,29 +1,20 @@
 {
   "products": [
     {
-        "id": "1",
+      "id": "1",
       "title": "iPhone 13 Pro",
       "price": 1000,
       "quantity": 6,
       "category": "phones",
       "image": "assets/images/iPhone.jpg"
-    
     },
     {
-      "id": "2",
-      "title": "Samsung Galaxy S21",
-      "price": 800,
-      "quantity": 4,
-      "category": "phones",
-      "image": "assets/images/samsung-phone.jpg"
-    },
-    {
-      "id": "3",
-      "image": "assets/images/xiaomi.jpg",
       "title": "Xiaomi Redmi Note 11",
-      "quantity": 7,
       "price": 350,
-      "category": "phones"
+      "quantity": 7,
+      "category": "phones",
+      "image": "assets/images/xiaomi.jpg",
+      "id": "3"
     },
     {
       "id": "4",
@@ -40,7 +31,6 @@
       "quantity": 6,
       "category": "laptops",
       "image": "assets/images/dell.jpg"
-      
     },
     {
       "id": "6",
@@ -51,12 +41,12 @@
       "category": "laptops"
     },
     {
-      "id": "7",
-      "image": "assets/images/airpods1.jpg",
       "title": "Apple AirPods Pro",
-      "quantity": 0,
       "price": 300,
-      "category": "audio"
+      "quantity": 6,
+      "category": "audio",
+      "image": "assets/images/airpods1.jpg",
+      "id": "7"
     },
     {
       "title": "Sony WH-1000XM4",

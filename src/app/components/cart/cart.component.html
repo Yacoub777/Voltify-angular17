@@ -1,54 +1,257 @@
 <div class="container py-4">
-  <h2 class="mb-4 text-light">Your Cart</h2>
+  <h2 class="mb-4 text-light">🛒 Your Cart</h2>
+  <div class="d-flex justify-content-end mb-2">
+    <button class="btn btn-danger btn-la" (click)="clearCart()" *ngIf="cartItems.length > 0">
+      🗑️ Clear All
+    </button>
+  </div>
 
-  <table *ngIf="cartItems.length > 0" class="table table-bordered table-striped table-dark">
-    <thead class="table-secondary">
-      <tr>
-        <th>Image</th>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Unit Price</th>
-        <th>Quantity</th>
-        <th>Total Price</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cartItems">
-        <td><img [src]="item.image" alt="{{ item.title }}" width="60"></td>
-        <td class="text-light">{{ item.title }}</td>
-        <td class="text-light">{{ item.category }}</td>
-        <td class="text-light">${{ item.price }}</td>
-        <td>
-          <input
-            type="number"
-            [(ngModel)]="item.selectedQty"
-            (ngModelChange)="onQuantityChange(item, $event)"
-            [min]="1"
-            [max]="item.quantity"
-            class="form-control"
-            style="width: 80px;">
-        </td>
-        <td class="text-light">${{ getTotalPrice(item) }}</td>
-        <td>
-          <button class="btn btn-danger btn-sm" (click)="onDelete(item)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Table Section -->
+  <div *ngIf="cartItems.length > 0">
+    <table class="table table-bordered table-striped table-dark">
+      <thead class="table-secondary">
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td><img [src]="item.image" alt="{{ item.title }}" width="60" class="rounded"></td>
+          <td class="text-light">{{ item.title }}</td>
+          <td class="text-light">{{ item.category }}</td>
+          <td class="text-light">${{ item.price }}</td>
+          <td>
+            <input type="number" [(ngModel)]="item.selectedQty" 
+                   (ngModelChange)="onQuantityChange(item, $event)" 
+                   [min]="1" [max]="item.quantity" class="form-control text-center" style="width: 80px;" />
+          </td>
+          <td class="text-light">${{ getTotalPrice(item) }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(item)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <!-- Total -->
-  <div *ngIf="cartItems.length > 0" class="text-end mt-3">
-    <h4>Total: <span class="text-success">${{ getCartTotal() }}</span></h4>
+    <!-- Total & Checkout Button -->
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <h4 class="mb-0 text-light">
+        Total: <span class="text-success">${{ getCartTotal() }}</span>
+      </h4>
+      <button class="btn btn-primary checkout-btn" (click)="onCheckoutClick()">
+        Proceed to Checkout
+      </button>
+    </div>
+
+    <!-- Alert Message -->
+    <div *ngIf="showAlert" class="alert mt-3" 
+         [ngClass]="{'alert-success': alertType==='success', 'alert-warning': alertType==='warning'}">
+      {{ alertMessage }}
+    </div>
+
+    <!-- Payment Section -->
+    <div *ngIf="showPaymentSection" class="payment-section mt-4 p-4 rounded shadow-sm text-light">
+      <h5 class="mb-4 text-center">💳 Choose Your Payment Method</h5>
+
+      <!-- Payment Options -->
+      <div class="payment-options d-flex flex-wrap justify-content-center gap-3">
+
+        <!-- Visa -->
+        <div class="payment-card" [class.active]="selectedPayment==='visa'" (click)="selectPayment('visa')">
+          <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" class="payment-icon">
+          <span>Visa</span>
+        </div>
+
+        <!-- Mastercard -->
+        <div class="payment-card" [class.active]="selectedPayment==='mastercard'" (click)="selectPayment('mastercard')">
+          <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard" class="payment-icon">
+          <span>Mastercard</span>
+        </div>
+
+        <!-- PayPal -->
+        <div class="payment-card" [class.active]="selectedPayment==='paypal'" (click)="selectPayment('paypal')">
+          <img src="assets/images/PaymentIcons/paypal.png" title="paypal logo icons" alt="PayPal" class="payment-icon">
+          <span>PayPal</span>
+        </div>
+
+        <!-- Fawry -->
+        <div class="payment-card" [class.active]="selectedPayment==='fawry'" (click)="selectPayment('fawry')">
+          <img src="assets/images/PaymentIcons/Fawry.png" alt="Fawry" class="payment-icon">
+          <span>Fawry</span>
+        </div>
+
+        <!-- Aman -->
+        <div class="payment-card" [class.active]="selectedPayment==='aman'" (click)="selectPayment('aman')">
+          <img src="assets/images/PaymentIcons/Amann.png" alt="Aman" class="payment-icon">
+          <span>Aman</span>
+        </div>
+
+        <!-- Vodafone Cash -->
+        <div class="payment-card" [class.active]="selectedPayment==='Vodafone Cash'" (click)="selectPayment('vodafone')">
+          <img src="assets\images\PaymentIcons\VodafoneCash.png" alt="Vodafone Cash" class="payment-icon">
+          <span>Vodafone Cash</span>
+        </div>
+
+        <!-- Cash on Delivery -->
+        <div class="payment-card" [class.active]="selectedPayment==='cash'" (click)="selectPayment('cash')">
+          <img src="assets/images/PaymentIcons/cash-on-delivery (1).png" alt="Cash on Delivery" class="payment-icon">
+          <span>Cash on Delivery</span>
+        </div>
+
+      </div>
+
+      <hr class="text-secondary my-4">
+
+      <!-- Card Details -->
+      <div *ngIf="selectedPayment==='visa' || selectedPayment==='mastercard'">
+        <div class="mb-3">
+          <label class="form-label">Card Number</label>
+          <input type="text" class="form-control" placeholder="1234 5678 9012 3456" />
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Expiry Date</label>
+            <input type="text" class="form-control" placeholder="MM/YY" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">CVV</label>
+            <input type="password" class="form-control" placeholder="***" />
+          </div>
+        </div>
+      </div>
+
+      <!-- PayPal -->
+      <div *ngIf="selectedPayment==='paypal'" class="text-center mt-3">
+        <p>You'll be redirected to PayPal to complete your payment.</p>
+      </div>
+
+      <!-- Aman -->
+      <div *ngIf="selectedPayment==='aman'" class="text-center mt-3">
+        <p>💳 You chose Aman as your payment method.</p>
+      </div>
+
+      <!-- Fawry -->
+      <div *ngIf="selectedPayment==='fawry'" class="text-center mt-3">
+        <p>💳 You chose Fawry as your payment method.</p>
+      </div>
+
+      <!-- Vodafone Cash -->
+      <div *ngIf="selectedPayment==='vodafone'" class="mt-3">
+        <label class="form-label">Vodafone Number</label>
+        <input type="text" class="form-control" placeholder="010xxxxxxxx" />
+      </div>
+
+      <!-- Cash -->
+      <div *ngIf="selectedPayment==='cash'" class="text-center mt-3">
+        <p>💰 You will pay in cash when the order is delivered.</p>
+      </div>
+
+      <button class="btn btn-success w-100 mt-4 fw-bold" (click)="completePayment()">
+        Confirm Payment
+      </button>
+    </div>
+
   </div>
 
   <!-- Empty Cart Placeholder -->
-  <div *ngIf="cartItems.length === 0" class="d-flex flex-column justify-content-center align-items-center mt-5">
+  <div *ngIf="cartItems.length===0" class="d-flex flex-column justify-content-center align-items-center mt-5">
     <i class="bi bi-cart-x" style="font-size: 3rem; color: #ffffff;"></i>
-    <h5 class="mt-3" style="color: #f8f9fa;">Your cart is empty</h5>
-    <p style="color: #e0e0e0;">Add some products to see them here.</p>
-    <a [routerLink]="['/products']"  class="btn" style="background-color: #2A55C1; color: #ffffff; margin-top: 0.5rem;">Browse Products</a>
+    <h5 class="mt-3 text-light">Your cart is empty</h5>
+    <p class="text-secondary">Add some products to see them here.</p>
+    <a [routerLink]="['/products']" class="btn btn-primary mt-2">Browse Products</a>
   </div>
+
+  <button *ngIf="orders.length>0" class="btn btn-outline-primary mb-3 mt-3" 
+          (click)="showOrdersSection = !showOrdersSection">
+    {{ showOrdersSection ? 'Show Orders' : 'Hide Orders' }}
+  </button>
+
+  <!-- Orders Section -->
+  <div *ngIf="!showOrdersSection && orders.length>0" class="orders-section mt-4">
+    <h4 class="text-primary mb-3">📦 Your Previous Orders</h4>
+    <button *ngIf="orders.length>0" class="btn btn-outline-danger mb-3 ms-2" (click)="clearOrders()">
+      🗑️ Clear Orders
+    </button>
+
+    <div *ngFor="let order of orders" class="card mb-3 shadow-sm p-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>🕒 {{ order.date }}</strong>
+        <span class="badge bg-success">Total: ${{ order.total }}</span>
+      </div>
+
+      <p class="mb-2 text-muted">
+        💳 Payment Method: <strong>{{ order.paymentMethod || 'Not specified' }}</strong>
+      </p>
+
+      <table class="table table-sm mt-2">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of order.items">
+            <td>{{ item.title }}</td>
+            <td>{{ item.selectedQty }}</td>
+            <td>${{ item.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 
+<style>
+.checkout-btn {
+  background-color: #2a55c1;
+  border: none;
+  transition: 0.3s ease;
+}
+.checkout-btn:hover {
+  background-color: #1e3e8c;
+}
+.payment-section {
+  background-color: #1e1e2f;
+  border: 1px solid #2a55c1;
+  border-radius: 12px;
+  padding: 25px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.table img { border-radius: 8px; }
+.btn-success { background-color: #28a745; border: none; }
+.btn-success:hover { background-color: #218838; }
 
+.payment-options { gap: 1rem; }
+.payment-card {
+  background-color: #2c2c3c;
+  border-radius: 15px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 120px;
+  text-align: center;
+  border: 2px solid transparent;
+}
+.payment-card:hover { transform: scale(1.05); border-color: #2a55c1; }
+.payment-card.active { background-color: #2a55c1; border-color: #4f7cff; color: #fff; }
+.payment-card.active span { color: #fff; }
+.payment-icon { width: 60px; height: auto; margin-bottom: 8px; }
+.payment-card span { font-size: 0.95rem; color: #ccc; margin-top: 5px; }
+</style>

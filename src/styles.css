@@ -11,6 +11,7 @@ html, body {
 body, .bg-dark {
   background-color: #202020 !important;
   color: #E0E0E0 !important;
+  padding-top: 70px;
 }
 
 /* لون الخطوط العامة */

@@ -26,9 +26,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      const searchQuery = params['search'];
-      this.searchText = searchQuery ? searchQuery.toLowerCase() : '';
-      
+      // const searchQuery = params['search'];
+      this.searchText = params['search'] || '';      
       this.fetchProductsAndFilter();
     });
   }
@@ -75,4 +74,8 @@ export class ProductComponent implements OnInit {
       error: (err) => console.error('Delete error:', err)
     });
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  
 }
