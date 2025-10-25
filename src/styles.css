@@ -27,29 +27,56 @@ body, .bg-dark {
 /* ☀️ الوضع الفاتح */
 /* =============================== */
 body.light-theme {
-  background-color:#a7a7a7  !important;
-  color: #212529 !important;
+  background-color: #3300ff !important; /* خلفية فاتحة مريحة */
+  color: #212529 !important; /* لون النص داكن */
 }
 
+/* الـ Navbar */
 body.light-theme .navbar {
-  background-color: #9a9a9a !important;
+  background-color: #084ef1 !important; /* لون أزرق مميز */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-
 body.light-theme .navbar .nav-link {
-  color: #000000 !important;
+  color: #ffffff !important; /* يخلي اللينكات واضحة */
 }
 
+body.light-theme .navbar .nav-link:hover {
+  color: #e0f7fa !important;
+}
+
+/* الـ Cards */
 body.light-theme .card {
-  background-color: #a7a7a7 !important;
+  background-color: #161cd5 !important; /* كارت أبيض */
   color: #000000;
   border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 body.light-theme .card .card-body h5 {
-  color: #000000 !important;
+  color: #007b83 !important; /* لون العناوين من نفس تدرج الأزرق */
 }
+
+/* =============================== */
+/* 🦶 الفوتر */
+/* =============================== */
+body.light-theme footer {
+  background-color: #084ef1 !important; /* نفس لون الـ navbar */
+  color: #ffffff !important;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.light-theme footer a {
+  color: #e0f7fa !important;
+  text-decoration: none;
+}
+
+body.light-theme footer a:hover {
+  text-decoration: underline;
+}
+
 /* =============================== */
 /* 🌗 زر التبديل (Theme Toggle) */
 /* =============================== */
