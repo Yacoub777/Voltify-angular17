@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/lap19-task2",
+            "outputPath": "dist/voltify-angular-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
