@@ -88,7 +88,7 @@ npm run dev
 
 ## 🚀 Features
 - 🛍️ Render products with categories.
-- 🔎 Search for products by category.
+- 🔎 Search for products by category and also by name.
 - ➕ Add products to the cart and choose the quantity you want.
 - 💰 Calculate the total price of the cart.
 - ℹ️ Show more details about each product if needed.

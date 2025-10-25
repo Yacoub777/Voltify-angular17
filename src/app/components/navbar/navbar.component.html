@@ -1,9 +1,6 @@
 <!-- ✅ alert for success messages -->
-<div *ngIf="showAlert"
-     class="alert position-fixed top-0 start-50 translate-middle-x mt-2"
-     [ngClass]="alertType === 'danger' ? 'alert-danger' : 'alert-success'"
-     role="alert"
-     style="z-index: 1050;">
+<div *ngIf="showAlert" class="alert position-fixed top-0 start-50 translate-middle-x mt-2"
+  [ngClass]="alertType === 'danger' ? 'alert-danger' : 'alert-success'" role="alert" style="z-index: 1050;">
   {{ alertMessage }}
 </div>
 
@@ -29,35 +26,32 @@
         <li class="nav-item d-flex align-items-center position-relative ms-2">
           <a class="nav-link p-0 position-relative d-flex align-items-center" [routerLink]="['/cart']">
             <i class="bi bi-cart3 fs-5 text-white"></i>
-            <span
-              *ngIf="cartCount > 0"
-              class="cart-badge position-absolute rounded-pill"
-            >
+            <span *ngIf="cartCount > 0" class="cart-badge position-absolute rounded-pill">
               {{ cartCount }}
             </span>
           </a>
         </li>
       </ul>
 
+      <!-- ✅ Theme Toggle Button -->
+      <button id="toggle" class="btn btn-outline-light ms-2 theme-toggle-btn" (click)="toggleTheme()"
+        [title]="isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode'">
+        <i class="bi" [ngClass]="isLightMode ? 'bi-moon-fill text-dark' : 'bi-sun-fill text-warning'"></i>
+      </button>
+
+
       <!-- ✅ Search Bar in Navbar -->
-      <form class="d-flex"(submit)="onSearchClick(); $event.preventDefault()">
-        <input
-          type="text"
-          class="form-control me-2"
-          placeholder="Search products..."
-          [(ngModel)]="searchText"
-          name="search"
-        />
+      <form class="d-flex" (submit)="onSearchClick(); $event.preventDefault()">
+        <input type="text" class="form-control me-2" placeholder="Search products..." [(ngModel)]="searchText"
+          name="search" />
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-      <button class="btn ms-3" 
-      style="background-color: #2A55C1; color: #ffffff; border: none;"
-      (mouseover)="hoverLogin=true" 
-      (mouseout)="hoverLogin=false"
-      [style.background-color]="!hoverLogin ? '#0f2a88' : '#2A55C1'">
-Login
-</button>
-  </div>
+      <button class="btn ms-3" style="background-color: #2A55C1; color: #ffffff; border: none;"
+        (mouseover)="hoverLogin=true" (mouseout)="hoverLogin=false"
+        [style.background-color]="!hoverLogin ? '#0f2a88' : '#2A55C1'">
+        Login
+      </button>
+    </div>
   </div>
 </nav>

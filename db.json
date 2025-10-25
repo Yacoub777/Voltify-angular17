@@ -43,7 +43,7 @@
     {
       "title": "Apple AirPods Pro",
       "price": 300,
-      "quantity": 6,
+      "quantity": 0,
       "category": "audio",
       "image": "assets/images/airpods1.jpg",
       "id": "7"
@@ -71,14 +71,6 @@
       "quantity": 14,
       "category": "laptops",
       "image": "https://www.abcshop-eg.com/web/image/product.product/2284/image_1024/%5B9S7-15M352-070%5D%20MSI%20Vector%2016%20HX%20AI%20A2XWHG?unique=a0eb23d"
-    },
-    {
-      "id": "11",
-      "title": "Anker R50i soundcore",
-      "price": 500,
-      "quantity": 12,
-      "category": "audio",
-      "image": "https://cdn.supercommerce.io/etisal-store/uploads/4-anker-soundcore-r50i-b2b-black-iteration-a3949h11-1686999442.webp"
     }
   ]
 }
